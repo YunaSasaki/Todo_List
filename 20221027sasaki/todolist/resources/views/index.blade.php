@@ -26,40 +26,43 @@
     @endif
     <div class=card>
       <p class=title>Todo List</p>
-      <form method="POST">
+      <form method="POST" action="/create">
         @csrf
         <div class=create>
           <input class="create-name" type="text" name="name" maxlength="20">
-          <button class="create-btn" formaction="/create" type="submit">追加</button>
+          <button class="create-btn" type="submit">追加</button>
         </div>
       </form>
       <table>
         <tr>
+          <th></th>
           <th>作成日</th>
           <th>タスク名</th>
           <th>更新</th>
           <th>削除</th>
         </tr>
-        <form method="POST">
+        @foreach ($todos as $todo)
+        <form method="POST" action="/update">
           @csrf
-          @foreach ($todos as $todo)
           <tr>
+            <td>
+              <input type="hidden" name="id" value="{{$todo->id}}">
+            </td>
             <td>
               {{$todo->created_at}}
             </td>
             <td>
-              <input type="hidden" name="id" value="{{$todo->id}}">
               <input class=update-name type="text" name="name" maxlength="20" value="{{$todo->name}}">
             </td>
             <td>
-              <button class="update-btn" formaction="/update" type="submit">編集</button>
+              <button class="update-btn" type="submit">更新</button>
             </td>
             <td>
               <button class="delete-btn" formaction="/delete" type="submit">削除</button>
             </td>
           </tr>
-          @endforeach
         </form>
+        @endforeach
       </table>
     </div>
   </div>

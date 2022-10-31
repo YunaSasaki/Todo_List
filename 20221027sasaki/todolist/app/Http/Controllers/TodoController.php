@@ -21,7 +21,14 @@ class TodoController extends Controller
     }
     public function update(TodoRequest $request)
     {
-        $item = $_POST['id'];
-        dd($item);  // その列のデータのidを取得したいが、最後のデータのidしか返ってこない
+        $form = $request->all();
+        unset($form['_token']);
+        Todo::where('id', $request->id)->update($form);
+        return redirect('/');
+    }
+    public function delete(Request $request)
+    {
+        Todo::find($request->id)->delete();
+        return redirect('/');
     }
 }
