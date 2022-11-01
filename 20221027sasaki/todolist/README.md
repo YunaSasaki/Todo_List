@@ -1,6 +1,6 @@
 # アプリケーション名
 Todoをシンプルに管理できるアプリです。
-!(sample_view.png)
+!(sample_img/sample_view.png)
 
 ## 作成した目的
 laravelの練習で作成しました。
@@ -15,7 +15,7 @@ laravelの練習で作成しました。
 laravel 9.37.0
 
 ## テーブル設計
-!(sample_table.png)
+!(sample_img/sample_table.png)
 
 ## ER図
-!(sample_ER.png)
+!(sample_img/sample_ER.png)
