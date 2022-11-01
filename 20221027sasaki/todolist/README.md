@@ -1,4 +1,4 @@
-# アプリケーション名
+# Todo List
 Todoをシンプルに管理できるアプリです。</br>
 <img src="sample_img/sample_view.png">
 
