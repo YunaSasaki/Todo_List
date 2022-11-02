@@ -15,22 +15,22 @@
 
 <body>
   <div class=container>
-    @if (count($errors) > 0)
-    <ul>
-      @foreach ($errors->all() as $error)
-      <li>
-        {{$error}}
-      </li>
-      @endforeach
-    </ul>
-    @endif
     <div class=card>
       <p class=title>Todo List</p>
-      <form method="POST" action="/create">
+      @if (count($errors) > 0)
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>
+          {{$error}}
+        </li>
+        @endforeach
+      </ul>
+      @endif
+      <form method="POST">
         @csrf
         <div class=create>
           <input class="create-name" type="text" name="name" maxlength="20">
-          <button class="create-btn" type="submit">追加</button>
+          <button class="create-btn" formaction="/create" type="submit">追加</button>
         </div>
       </form>
       <table>
@@ -42,7 +42,7 @@
           <th>削除</th>
         </tr>
         @foreach ($todos as $todo)
-        <form method="POST" action="/update">
+        <form method="POST">
           @csrf
           <tr>
             <td>
@@ -55,7 +55,7 @@
               <input class=update-name type="text" name="name" maxlength="20" value="{{$todo->name}}">
             </td>
             <td>
-              <button class="update-btn" type="submit">更新</button>
+              <button class="update-btn" formaction="/update" type="submit">更新</button>
             </td>
             <td>
               <button class="delete-btn" formaction="/delete" type="submit">削除</button>
