@@ -27,4 +27,10 @@ class TodoRequest extends FormRequest
             'name' => 'required'
         ];
     }
+    public function messages()
+    {
+        return [
+            'name.required' => 'タスク名を入力してください',
+        ];
+    }
 }
