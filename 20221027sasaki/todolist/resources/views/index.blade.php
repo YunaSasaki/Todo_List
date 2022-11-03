@@ -29,7 +29,7 @@
       <form method="POST">
         @csrf
         <div class=create>
-          <input class="create-name" type="text" name="name" maxlength="20">
+          <input class="create-name" type="text" name="name">
           <button class="create-btn" formaction="/create" type="submit">追加</button>
         </div>
       </form>
@@ -52,7 +52,7 @@
               {{$todo->created_at}}
             </td>
             <td>
-              <input class=update-name type="text" name="name" maxlength="20" value="{{$todo->name}}">
+              <input class=update-name type="text" name="name" value="{{$todo->name}}">
             </td>
             <td>
               <button class="update-btn" formaction="/update" type="submit">更新</button>
